@@ -328,3 +328,84 @@ a = [1,2,3,4,1,2,3,4]
 a.count(1)
 print(a.count(1))
 
+# 튜플 - List와 달리 변형이 불가능하다 ex) sort, insert,remove,pop,del 등등
+
+a1 = ()
+print(type(a1))
+
+a2 = (1, ) # 하나의 값을 넣을 땐 무조건 ","를 넣어야 한다
+print(a2[0])
+
+a3 = 1,2,3
+print(type(a3)) # 괄호를 없이 해도 튜플로 나온다
+
+# 튜플 요소 제거
+
+a1 = 1,2,3,'a','b'
+# del a1[0] # 튜플은 변경이 불가능 함
+
+# 튜플은 리스트와 거의 동일함 인덱싱과 슬라이싱 전부 가능
+
+# 튜플의 연산
+
+a1 = 1,2,3
+a2 = 4,5
+
+a3 = a1 + a2
+
+print(a3)
+
+a1 = 1,2,3
+a2 = a1 *2
+
+print(a2)
+
+# 튜플 길이 구하기
+
+a1 = 1,2,3
+print(len(a1))
+
+# Dictionary 
+
+dic1 = {'name':'yuk', 'phone' : '010-1234-1234'}
+print(type(dic1))
+print(dic1)
+
+dic2 = {'a': [1,2,3]}
+print(dic2)
+
+# Dictionary의 특성들
+
+a = {1 : 'a'}
+a[2] = 'b' # Dic에 새로운 key와 value 추가 [] 안쪽이 key, 값이 value
+print(a)
+
+a = {1: 'a', 2: 'b', 'name': 'yuk', 3:  [1,2,3]}
+del a['name'] # del로 삭제할 땐 [] 안에 key 넣어주기
+print(a)
+
+a = {1: 'a', 2: 'b', 'name': 'yuk', 3:  [1,2,3]}
+print(a[1]) # key를 넣으면 value를 준다
+
+
+a = {1 :"HI", 1: "BYE"}
+print(a) # key가 중복되면 뒤에 있는 key가 활성화 된다. 즉 덮어씌워지는 것이다
+
+# Dictionary 관련 함수
+
+a = {1: 'a', 2: 'b', 'name': 'yuk', 3:  [1,2,3]}
+print(a.keys()) # keys 함수는 해당 Dic에 key 값들만 선택해 List로 반환한다
+
+a = {1: 'a', 2: 'b', 'name': 'yuk', 3:  [1,2,3]}
+print(a.values()) # values 함수는 해당 Dic에 value 값들만 선택해 List로 반환한다
+
+a = {1: 'a', 2: 'b', 'name': 'yuk', 3:  [1,2,3]}
+print(a.items()) # items 함수는 해당 Dic에 key,value 값 모두 선택해 List로 반환한다
+
+a = {1: 'a', 2: 'b', 'name': 'yuk', 3:  [1,2,3]}
+a.clear() # 값을 싹 날리는 함수다 따라서 빈 Dic을 반환한다
+print(a)
+
+a = {1: 'a', 2: 'b', 'name': 'yuk', 3:  [1,2,3]}
+print(a.get(1)) # key를 통해 value를 얻는 함수
+print(a.get('age','값이 존재하지 않음')) # Dic에 없는 key를 넣었을 때 default로 NONE을 반환함. 하지만 옆에 ','를 쓰고 message를 남길 경우 message를 반환함.
