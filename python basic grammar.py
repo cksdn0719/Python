@@ -409,3 +409,131 @@ print(a)
 a = {1: 'a', 2: 'b', 'name': 'yuk', 3:  [1,2,3]}
 print(a.get(1)) # key를 통해 value를 얻는 함수
 print(a.get('age','값이 존재하지 않음')) # Dic에 없는 key를 넣었을 때 default로 NONE을 반환함. 하지만 옆에 ','를 쓰고 message를 남길 경우 message를 반환함.
+
+a = {1: 'a', 2: 'b', 'name': 'yuk', 3:  [1,2,3]}
+print('name' in a) # True, False 둘 중의 하나의 값을 반환함
+
+# 집합 자료형
+
+a1 = set([1,2,3])
+print(a1) # set은 순서가 정해진 것이 아니기 때문에 indexing을 할 수 없음
+print(type(a1))
+
+
+a1 = set('Hello')
+print(a1) # set은 중복된 것을 허용하지 않는다 따라서 ll이 두번 들어갔지만 반환은 l 한개만 한다
+print(type(a1))
+
+a1 = set([1,2,3])
+li =list(a1) # indexing을 하려면 데이터 변환을 통해 List로 만들어서 indexing 해야함
+print(li[0])
+
+a1 = set([1,2,3])
+tu = tuple(a1) # tuple도 동일함
+print(tu[0])
+
+# 교집합, 합집합, 차집합 구하기
+
+s1 = set([1,2,3,4,5])
+s2 = set([4,5,6,7,8])
+
+print(s1&s2) # 교집합
+print(s1.intersection(s2)) # 교집합 - intersection이란 함수를 이용함
+
+print(s1|s2) # 합집합
+print(s1.union(s2)) # 합집합 - union이란 함수를 이용함
+
+print(s1-s2) # 차집합
+print(s1.difference(s2)) #차집합  - difference란 함수를 이용함
+
+s1 = set([1,2,3,4,5])
+s1.add(6) # set의 끝에 값 1개를 추가함
+print(s1)
+
+s1 = set([1,2,3,4,5])
+s1.update([6,7,8]) # set의 끝에 값 여러개를 추가함
+print(s1)
+
+s1 = set([1,2,3,4,5])
+s1.remove(2) # set의 특정 값을 제거함
+print(s1)
+
+# set은 언제 활용할까
+
+li = [1,2,2,2,2,3,3,3,4,4,5,5,6] # List에 중복된 요소가 있을 경우
+s1 = set(li) # 집합의 특성인 중복 제거를 이용한다
+print(s1)  
+print(type(s1)) # type이 set이다
+
+li_2 = list(s1) # type이 set인 s1을 다시 List로 만들어준다
+print(li_2)
+print(type(li_2)) # type이 List 이다
+
+# Bool 자료형
+
+a = True # or False
+print(type(a))
+
+# 변수
+
+a = [1,2,3]
+print(id(a)) # 주소값 표현
+
+
+a = [1,2,3]
+b = a # List 복사 시 주소값은 동일 즉 a = b임
+print(id(a)) 
+print(id(b)) 
+
+print(a is b) # bool을 활용해 둘의 주소값이 같은지 직관적으로 확인 가능
+
+# 변수의 복사
+
+a = [1,2,3]
+b = a 
+a[0] = 4
+
+print(a)
+print(b) # b는 a와 동일하기 때문에 a 변경 시 b도 바뀐다
+
+
+a = [1,2,3]
+b = a[:] # a list를 슬라이싱 해서 새로운 list를 b에 넣어서 저장했으니 a와 b는 주소값이 동일하지 않음
+a[0] = 4 # a의 요소를 indexing하여 값을 변경해도 b는 독립된 공간임으로 a의 변경 사항이 저장되지 않음
+
+print(a)
+print(b)
+
+a = [1,2,3]
+b = a[0] # slicing이 아닌 indexing도 마찬가지임
+a[2] = 10
+
+print(a)
+print(b)
+
+from copy import copy
+a = [1,2,3]
+b = copy(a) # a의 값들을 단순히 복사해서 새로운 독립된 공간을 만들어 저장시킴 
+
+a = [1,2,3]
+b = a.copy() # copy module을 import 해서 사용하는 것이 아닌 copy라는 method를 이용한 복사 방법
+
+print(a is b) # 단순 복사이기 때문에 False가 나옴
+print(id(a)) 
+print(id(b)) # 따라서 a와 b는 동일하지 않으니 주소값이 다르다
+
+# 변수 생성 방법
+
+a,b = (10,20) # 굳이 따로따로 만들 필요 없다
+
+print(a)
+print(b)
+
+a = b = 'python' # 굳이 따로따로 만들 필요 없다
+
+a = 3
+b = 5
+a,b = b,a # 두 변수의 값을 서로 바꾸는 코드
+
+print(a)
+print(b)
